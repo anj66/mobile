@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thungabhadra Mobiles & Repair Services | Jagadesh Market, Hyderabad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --dark-card: #1e293b;
+            --light-bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .main-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.4rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .cart-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .cart-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .badge {
+            background: white;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 99px;
+        }
+
+        /* PAGE DISPLAY ROUTER */
+        .page-view {
+            display: none;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            width: 100%;
+            flex: 1;
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BUTTONS & UI ELEMENTS */
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* HOME PAGE */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 3rem;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            transition: transform 0.3s;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.8rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #0f172a;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+
+        .card-img-wrap {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+
+        .card-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-brand {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-specs {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* REPAIR & GADGET SERVICES UI */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SHOP / CATALOG CONTROLS */
+        .shop-controls {
+            background: var(--surface);
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 240px;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            outline: none;
+            background: var(--surface);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        /* PRODUCT DETAIL */
+        .detail-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .detail-gallery {
+            background: #f8fafc;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-gallery img {
+            max-width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .specs-item {
+            background: var(--light-bg);
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .specs-item strong {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* CART PAGE */
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .cart-table {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto auto;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qty-btn {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .cart-summary {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .summary-row.total {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* CHECKOUT PAGE */
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .form-section {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        /* ABOUT & REPAIR SHOWCASE SECTION */
+        .about-hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .about-gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .about-gallery-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-gallery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .about-gallery-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: center;
+        }
+
+        .info-icon {
+            background: var(--light-bg);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero, .detail-card, .cart-layout, .checkout-layout, .contact-grid, .about-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-img { max-height: 260px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .header-container { flex-direction: column; gap: 1rem; }
+            nav { gap: 0.8rem; font-size: 0.82rem; flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GLOBAL NAVIGATION HEADER -->
+    <header>
+        <div class="header-container">
+            <a class="logo" onclick="navigateTo('home')">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="22" fill="url(#brandGrad)"/>
+                    <rect x="28" y="16" width="44" height="68" rx="10" fill="#ffffff" opacity="0.95"/>
+                    <rect x="32" y="22" width="36" height="52" rx="4" fill="#0f172a"/>
+                    <path d="M 32 50 Q 41 42, 50 50 T 68 50 L 68 74 L 32 74 Z" fill="url(#waveGrad)"/>
+                    <path d="M 32 58 Q 41 52, 50 58 T 68 58 L 68 74 L 32 74 Z" fill="#06b6d4" opacity="0.7"/>
+                    <circle cx="50" cy="80" r="2.5" fill="#2563eb"/>
+                    <defs>
+                        <linearGradient id="brandGrad" x1="0" y1="0" x2="100" y2="100">
+                            <stop offset="0%" stop-color="#2563eb"/>
+                            <stop offset="100%" stop-color="#0284c7"/>
+                        </linearGradient>
+                        <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#1d4ed8"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="logo-text">
+                    <div class="main-title">Thungabhadra <span>Mobiles</span></div>
+                    <span class="logo-tagline">Jagadesh Market • Hyd</span>
+                </div>
+            </a>
+            <nav>
+                <a id="nav-home" class="active" onclick="navigateTo('home')">Home</a>
+                <a id="nav-shop" onclick="navigateTo('shop')">Smartphones</a>
+                <a id="nav-gadgets" onclick="navigateTo('gadgets')">Gadgets & Acc</a>
+                <a id="nav-repairs" onclick="navigateTo('repairs')">Repair Center</a>
+                <a id="nav-cart" onclick="navigateTo('cart')">Cart</a>
+                <a id="nav-contact" onclick="navigateTo('contact')">About & Location</a>
+            </nav>
+            <button class="cart-btn" onclick="navigateTo('cart')">
+                🛒 Cart <span class="badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- PAGE 1: HOME PAGE -->
+    <section id="home" class="page-view active">
+        <div class="hero">
+            <div class="hero-content">
+                <span style="color: var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">📍 Jagadesh Market, Hyderabad</span>
+                <h1>Hyderabad's Gaming & Mobile Hub</h1>
+                <p>Explore ASUS ROG Gaming beasts, flagship smartphones, authentic mobile accessories, and expert chip-level repair services with full warranty.</p>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <button class="btn" onclick="navigateTo('shop')">Explore All Phones</button>
+                    <button class="btn btn-secondary" onclick="openDetails(7)">ASUS ROG Phone 8 Pro</button>
+                </div>
+            </div>
+            <!-- REAL ROG PHONE IMAGE -->
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80" alt="ASUS ROG Phone 8 Pro Gaming Device" class="hero-img">
+        </div>
+
+        <div class="section-header">
+            <div>
+                <h2>Featured Smartphone Lineup</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Curated authentic devices straight from official brand distributors.</p>
+            </div>
+            <button class="btn btn-outline" onclick="navigateTo('shop')">View Full Catalog →</button>
+        </div>
+
+        <div class="product-grid" id="featured-grid"></div>
+    </section>
+
+    <!-- PAGE 2: SHOP CATALOG (SMARTPHONES) -->
+    <section id="shop" class="page-view">
+        <div style="margin-bottom: 1.5rem;">
+            <h2>Explore Smartphones</h2>
+            <p style="color: var(--text-muted);">Filter by brand including ASUS ROG, Sony Xperia, Honor, Apple, Samsung & OnePlus.</p>
+        </div>
+
+        <div class="shop-controls">
+            <input type="text" id="search-bar" class="search-input" placeholder="Search ROG, Xperia, Honor, iPhone, Snapdragon..." oninput="filterProducts()">
+            <select id="brand-filter" class="filter-select" onchange="filterProducts()">
+                <option value="All">All Brands</option>
+                <option value="ASUS ROG">ASUS ROG Series</option>
+                <option value="Sony">Sony Xperia Series</option>
+                <option value="Honor">Honor Mobiles</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Google">Google</option>
+                <option value="OnePlus">OnePlus</option>
+            </select>
+            <select id="sort-filter" class="filter-select" onchange="filterProducts()">
+                <option value="default">Sort by: Featured</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="catalog-grid"></div>
+    </section>
+
+    <!-- PAGE 3: MOBILE GADGETS & ACCESSORIES -->
+    <section id="gadgets" class="page-view">
+        <div style="margin-bottom: 1.5rem;">
+            <h2>Mobile Gadgets & Accessories</h2>
+            <p style="color: var(--text-muted);">High-speed chargers, gaming accessories, wireless audio, and protective gear.</p>
+        </div>
+
+        <div class="product-grid" id="gadgets-grid"></div>
+    </section>
+
+    <!-- PAGE 4: REPAIR SERVICES -->
+    <section id="repairs" class="page-view">
+        <div class="about-hero">
+            <span style="color: var(--primary); font-weight:800; letter-spacing:1px; text-transform:uppercase; font-size:0.85rem;">Fast • Original • Reliable</span>
+            <h1>Express Mobile Repair Center</h1>
+            <p style="color: var(--text-muted);">Same-day repairs at Jagadesh Market using genuine spare parts with up to 6 months store warranty.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Display & Glass Replacement</h3>
+                <p style="color: var(--text-muted); font-size:0.9rem;">Cracked screen or broken touch AMOLED? Get 100% original display assemblies for ROG, iPhone, Samsung & more.</p>
+                <strong style="color: var(--primary);">Estimated: 45 Mins</strong>
+                <button class="btn btn-outline" onclick="navigateTo('contact')">Book Screen Repair</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔋</div>
+                <h3>Original Battery Replacement</h3>
+                <p style="color: var(--text-muted); font-size:0.9rem;">Fast battery drain or heating issues? Swap with high-capacity OEM battery packs with health diagnostics.</p>
+                <strong style="color: var(--primary);">Estimated: 30 Mins</strong>
+                <button class="btn btn-outline" onclick="navigateTo('contact')">Book Battery Swap</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔌</div>
+                <h3>Charging Port & Speaker Repair</h3>
+                <p style="color: var(--text-muted); font-size:0.9rem;">Fix loose Type-C/Lightning ports, silent microphones, and distorted speakers with original flex cables.</p>
+                <strong style="color: var(--primary);">Estimated: 1 Hour</strong>
+                <button class="btn btn-outline" onclick="navigateTo('contact')">Book Port Repair</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Motherboard & Water Damage</h3>
+                <p style="color: var(--text-muted); font-size:0.9rem;">Advanced IC repair, CPU reballing, and chemical ultra-sonic cleaning for liquid-damaged smartphones.</p>
+                <strong style="color: var(--primary);">Estimated: Same Day</strong>
+                <button class="btn btn-outline" onclick="navigateTo('contact')">Book Diagnostics</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5: PRODUCT DETAIL -->
+    <section id="details" class="page-view">
+        <button class="btn btn-outline" onclick="navigateTo('shop')" style="margin-bottom: 1.5rem;">← Back to Catalog</button>
+        <div class="detail-card" id="detail-content"></div>
+    </section>
+
+    <!-- PAGE 6: CART -->
+    <section id="cart" class="page-view">
+        <h2 style="margin-bottom: 1.5rem;">Your Shopping Cart</h2>
+        <div class="cart-layout">
+            <div class="cart-table" id="cart-items-container"></div>
+            <div class="cart-summary">
+                <h3 style="margin-bottom: 1.2rem;">Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (18%)</span>
+                    <span id="summary-tax">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Store Pickup / Delivery</span>
+                    <span style="color: #16a34a; font-weight:700;">FREE</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="summary-total">₹0</span>
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 1.5rem;" onclick="navigateTo('checkout')">Proceed to Checkout →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 7: CHECKOUT -->
+    <section id="checkout" class="page-view">
+        <h2 style="margin-bottom: 1.5rem;">Complete Order</h2>
+        <div class="checkout-layout">
+            <div>
+                <form id="checkout-form" onsubmit="submitOrder(event)">
+                    <div class="form-section">
+                        <h3>1. Customer & Shipping Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" required placeholder="Srinivas">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" required placeholder="Rao">
+                            </div>
+                            <div class="form-group full">
+                                <label>Mobile Number</label>
+                                <input type="tel" required placeholder="+91 98765 43210">
+                            </div>
+                            <div class="form-group full">
+                                <label>Email Address</label>
+                                <input type="email" required placeholder="srinivas@example.com">
+                            </div>
+                            <div class="form-group full">
+                                <label>Delivery Address / Pickup Note</label>
+                                <input type="text" required placeholder="Flat No, Colony, Area, Hyderabad">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>2. Payment Options</h3>
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label>Payment Method</label>
+                                <select required>
+                                    <option value="upi">UPI (GPay / PhonePe / Paytm)</option>
+                                    <option value="card">Credit / Debit Card</option>
+                                    <option value="cash">Pay at Store (Jagadesh Market)</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label>Card / UPI ID</label>
+                                <input type="text" required placeholder="username@upi or Card Number">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Confirm & Reserve Order</button>
+                </form>
+            </div>
+
+            <div class="cart-summary">
+                <h3>Order Review</h3>
+                <div id="checkout-summary-items" style="margin: 1rem 0; font-size: 0.9rem;"></div>
+                <div class="summary-row total">
+                    <span>Payable Amount</span>
+                    <span id="checkout-total-amount">₹0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 8: ABOUT US & LOCATION -->
+    <section id="contact" class="page-view">
+        <div class="about-hero">
+            <h1>Thungabhadra Mobiles</h1>
+            <p style="color: var(--text-muted);">Hyderabad's premier showroom at Jagadesh Market for high-end smartphones, ROG gaming hardware, mobile gadgets, and professional chip-level repairs.</p>
+        </div>
+
+        <!-- MOBILE SALES & REPAIR IMAGES IN ABOUT US -->
+        <div class="about-gallery-grid">
+            <div class="about-gallery-card">
+                <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=80" alt="Mobile Sales Counter at Jagadesh Market">
+                <div class="card-body">
+                    <span style="color: var(--primary); font-weight:800; font-size:0.75rem; text-transform:uppercase;">Showroom & Sales</span>
+                    <h3 style="margin:0.4rem 0;">Authorized Smartphone Showcase</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Live demos for ASUS ROG Phone 8 Pro, Sony Xperia, Honor, Apple, and Samsung devices backed by full manufacturer warranty.</p>
+                </div>
+            </div>
+
+            <div class="about-gallery-card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Chip-level Mobile Repair Workshop">
+                <div class="card-body">
+                    <span style="color: var(--primary); font-weight:800; font-size:0.75rem; text-transform:uppercase;">Technical Services</span>
+                    <h3 style="margin:0.4rem 0;">High-Precision Mobile Repair Lab</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Equipped with modern BGA reballing stations and microscopic repair gear for motherboard, glass, and battery replacements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Store Information</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Visit our Jagadesh Market showroom for instant sales or repairs.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <strong>Store Address</strong>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">Shop #12 & 14, Jagadesh Market, Chirag Ali Lane, Abids, Hyderabad, Telangana 500001</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <strong>Contact / WhatsApp</strong>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">+91 98490 12345 / +91 040 66778899</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">🕒</div>
+                    <div>
+                        <strong>Store Hours</strong>
+                        <p style="color: var(--text-muted); font-size:0.9rem;">Monday - Saturday: 10:30 AM – 9:30 PM (Sunday Closed)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>Inquire About Repair or Sales</h3>
+                <form onsubmit="alert('Thank you! Our sales and repair team at Jagadesh Market will contact you shortly.'); return false;">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label>Your Name</label>
+                        <input type="text" required placeholder="Kiran Kumar">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label>Mobile Number</label>
+                        <input type="tel" required placeholder="+91 98765 43210">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Query (Sales or Repair)</label>
+                        <textarea rows="3" required placeholder="Inquiring about ROG Phone 8 Pro price or Screen Repair cost for iPhone 15..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a class="logo" style="margin-bottom: 1rem;">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" rx="22" fill="#2563eb"/>
+                        <rect x="28" y="16" width="44" height="68" rx="10" fill="#ffffff"/>
+                        <path d="M 32 50 Q 41 42, 50 50 T 68 50 L 68 74 L 32 74 Z" fill="#38bdf8"/>
+                    </svg>
+                    <span style="font-size:1.1rem; font-weight:800; color:white;">Thungabhadra Mobiles</span>
+                </a>
+                <p style="font-size: 0.9rem; line-height:1.6; color: #64748b;">Hyderabad's official flagship mobile store and repair center in Jagadesh Market.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a onclick="navigateTo('home')">Home</a></li>
+                    <li><a onclick="navigateTo('shop')">Smartphones</a></li>
+                    <li><a onclick="navigateTo('gadgets')">Mobile Gadgets</a></li>
+                    <li><a onclick="navigateTo('repairs')">Repair Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Brands & Repair</h4>
+                <ul>
+                    <li><a onclick="navigateTo('shop')">ASUS ROG Gaming</a></li>
+                    <li><a onclick="navigateTo('shop')">Sony Xperia & Honor</a></li>
+                    <li><a onclick="navigateTo('repairs')">Display Repair</a></li>
+                    <li><a onclick="navigateTo('repairs')">Motherboard Fixing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Store Location</h4>
+                <ul>
+                    <li><a onclick="navigateTo('contact')">Jagadesh Market, Abids</a></li>
+                    <li><a onclick="navigateTo('contact')">Hyderabad, Telangana</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thungabhadra Mobiles & Repairs. Jagadesh Market, Hyderabad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS APP LOGIC -->
+    <script>
+        // SMARTPHONES CATALOG (AUTHENTIC ROG PHONE IMAGE INCLUDED)
+        const products = [
+            {
+                id: 7,
+                name: "ASUS ROG Phone 8 Pro",
+                brand: "ASUS ROG",
+                price: 94999,
+                tag: "Gaming Beast",
+                img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+                display: "6.78\" FHD+ Samsung E6 AMOLED 165Hz",
+                chip: "Snapdragon 8 Gen 3 + Matrix Liquid Cooler",
+                camera: "50MP Gimbal Stabilizer + 32MP Telephoto",
+                battery: "5500 mAh (65W Quick Charge)",
+                storage: "16GB RAM / 512GB Storage"
+            },
+            {
+                id: 8,
+                name: "Sony Xperia 1 VI",
+                brand: "Sony",
+                price: 114999,
+                tag: "Optics Flagship",
+                img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+                display: "6.5\" 4K HDR OLED 120Hz CinemaWide",
+                chip: "Snapdragon 8 Gen 3",
+                camera: "48MP ZEISS Optics + Optical Telephoto Zoom",
+                battery: "5000 mAh with Wireless Charging",
+                storage: "12GB RAM / 256GB Storage"
+            },
+            {
+                id: 9,
+                name: "Honor Magic6 Pro",
+                brand: "Honor",
+                price: 89999,
+                tag: "AI Photography",
+                img: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80",
+                display: "6.8\" LTPO Quad-Curved OLED 120Hz",
+                chip: "Snapdragon 8 Gen 3 + Honor C1+ Chip",
+                camera: "180MP Periscope Telephoto Camera",
+                battery: "5600 mAh Silicon-Carbon Battery",
+                storage: "12GB RAM / 512GB Storage"
+            },
+            {
+                id: 1,
+                name: "iPhone 15 Pro Max",
+                brand: "Apple",
+                price: 134900,
+                tag: "Flagship",
+                img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+                display: "6.7\" Super Retina XDR ProMotion",
+                chip: "A17 Pro (3nm)",
+                camera: "48MP Main + 12MP 5x Telephoto",
+                battery: "4422 mAh",
+                storage: "256GB / 512GB"
+            },
+            {
+                id: 2,
+                name: "Samsung Galaxy S24 Ultra",
+                brand: "Samsung",
+                price: 129999,
+                tag: "Galaxy AI",
+                img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+                display: "6.8\" Dynamic AMOLED 2X, S-Pen",
+                chip: "Snapdragon 8 Gen 3 for Galaxy",
+                camera: "200MP Quad Camera with AI",
+                battery: "5000 mAh",
+                storage: "256GB / 512GB"
+            }
+        ];
+
+        // MOBILE GADGETS & ACCESSORIES CATALOG
+        const gadgets = [
+            {
+                id: 101,
+                name: "ROG Cetra True Wireless Earbuds",
+                brand: "ASUS ROG",
+                price: 8999,
+                tag: "Low Latency",
+                img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80",
+                display: "ANC Noise Canceling",
+                chip: "27-Hour Battery + Wireless Charging"
+            },
+            {
+                id: 102,
+                name: "Anker 65W GaN Fast Charger",
+                brand: "Anker",
+                price: 3499,
+                tag: "Ultra Fast",
+                img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80",
+                display: "Dual USB-C Ports",
+                chip: "Universal Fast Charging for ROG, iPhone & Samsung"
+            },
+            {
+                id: 103,
+                name: "20,000mAh Power Bank (45W Power Delivery)",
+                brand: "Mi / Redmi",
+                price: 2499,
+                tag: "High Capacity",
+                img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=800&q=80",
+                display: "Triple Device Charging",
+                chip: "Power Delivery 3.0"
+            },
+            {
+                id: 104,
+                name: "Armor MagSafe Protective Case",
+                brand: "Spigen",
+                price: 1899,
+                tag: "Drop Tested",
+                img: "https://images.unsplash.com/photo-1601593378480-85345703a7ed?auto=format&fit=crop&w=800&q=80",
+                display: "Shock Absorbing Air Cushion",
+                chip: "Available for iPhone, Galaxy & ROG"
+            }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('thungabhadra_cart')) || [];
+
+        function navigateTo(pageId, productParamId = null) {
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) targetPage.classList.add('active');
+
+            const activeNav = document.getElementById(`nav-${pageId}`);
+            if (activeNav) activeNav.classList.add('active');
+
+            if (pageId === 'details' && productParamId) {
+                openDetails(productParamId);
+            }
+
+            if (pageId === 'cart') renderCartView();
+            if (pageId === 'checkout') renderCheckoutSummary();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function createProductCardHTML(p, isGadget = false) {
+            return `
+                <div class="card">
+                    <span class="card-badge">${p.tag}</span>
+                    <div class="card-img-wrap">
+                        <img src="${p.img}" alt="${p.name}">
+                    </div>
+                    <div class="card-brand">${p.brand}</div>
+                    <h3 class="card-title">${p.name}</h3>
+                    <p class="card-specs"><strong>Specs:</strong> ${p.display}<br><strong>Feature:</strong> ${p.chip}</p>
+                    <div class="card-footer">
+                        <div class="card-price">₹${p.price.toLocaleString('en-IN')}</div>
+                        <div style="display:flex; gap:6px;">
+                            ${!isGadget ? `<button class="btn btn-outline" style="padding:0.5rem 0.8rem;" onclick="openDetails(${p.id})">Specs</button>` : ''}
+                            <button class="btn" style="padding:0.5rem 0.8rem;" onclick="addToCart(${p.id}, ${isGadget})">+ Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initGrids() {
+            const homeGrid = document.getElementById('featured-grid');
+            if (homeGrid) {
+                homeGrid.innerHTML = products.slice(0, 4).map(p => createProductCardHTML(p)).join('');
+            }
+
+            const gadgetGrid = document.getElementById('gadgets-grid');
+            if (gadgetGrid) {
+                gadgetGrid.innerHTML = gadgets.map(g => createProductCardHTML(g, true)).join('');
+            }
+
+            filterProducts();
+        }
+
+        function filterProducts() {
+            const search = document.getElementById('search-bar')?.value.toLowerCase() || '';
+            const brand = document.getElementById('brand-filter')?.value || 'All';
+            const sort = document.getElementById('sort-filter')?.value || 'default';
+
+            let result = products.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(search) || p.chip.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search);
+                const matchesBrand = brand === 'All' || p.brand === brand;
+                return matchesSearch && matchesBrand;
+            });
+
+            if (sort === 'low-high') result.sort((a,b) => a.price - b.price);
+            if (sort === 'high-low') result.sort((a,b) => b.price - a.price);
+
+            const catalogGrid = document.getElementById('catalog-grid');
+            if (catalogGrid) {
+                catalogGrid.innerHTML = result.map(p => createProductCardHTML(p)).join('');
+            }
+        }
+
+        function openDetails(id) {
+            const product = products.find(p => p.id === id) || products[0];
+            const container = document.getElementById('detail-content');
+            
+            container.innerHTML = `
+                <div class="detail-gallery">
+                    <img src="${product.img}" alt="${product.name}">
+                </div>
+                <div class="detail-info">
+                    <span style="color:var(--primary); font-weight:700; text-transform:uppercase;">${product.brand} Official • Thungabhadra Mobiles</span>
+                    <h1>${product.name}</h1>
+                    <p style="color:var(--text-muted);">${product.tag} Edition • Store & Brand Warranty</p>
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--primary); margin: 1rem 0 1.5rem;">₹${product.price.toLocaleString('en-IN')}</div>
+
+                    <h3>Technical Specifications</h3>
+                    <div class="specs-list">
+                        <div class="specs-item">
+                            <strong>Display</strong>
+                            <span>${product.display}</span>
+                        </div>
+                        <div class="specs-item">
+                            <strong>Processor</strong>
+                            <span>${product.chip}</span>
+                        </div>
+                        <div class="specs-item">
+                            <strong>Camera Optics</strong>
+                            <span>${product.camera}</span>
+                        </div>
+                        <div class="specs-item">
+                            <strong>Battery & Charging</strong>
+                            <span>${product.battery}</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:1rem;">
+                        <button class="btn" style="flex:1;" onclick="addToCart(${product.id})">Add To Cart</button>
+                        <button class="btn btn-secondary" onclick="addToCart(${product.id}); navigateTo('checkout');">Buy Now</button>
+                    </div>
+                </div>
+            `;
+            navigateTo('details');
+        }
+
+        function addToCart(productId, isGadget = false) {
+            const sourceList = isGadget ? gadgets : products;
+            const product = sourceList.find(p => p.id === productId);
+            const existingIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            alert(`${product.name} added to cart!`);
+        }
+
+        function updateQuantity(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) cart.splice(index, 1);
+            }
+            saveCart();
+            renderCartView();
+        }
+
+        function saveCart() {
+            localStorage.setItem('thungabhadra_cart', JSON.stringify(cart));
+            const badge = document.getElementById('cart-count');
+            if (badge) {
+                const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+                badge.textContent = totalCount;
+            }
+        }
+
+        function renderCartView() {
+            const container = document.getElementById('cart-items-container');
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding: 3rem 1rem;">
+                        <h3>Your cart is empty</h3>
+                        <p style="color:var(--text-muted); margin: 0.5rem 0 1.5rem;">Explore our store to add smartphones & gadgets.</p>
+                        <button class="btn" onclick="navigateTo('shop')">Browse Smartphones</button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div>
+                            <h4 style="font-weight:700;">${item.name}</h4>
+                            <p style="color:var(--text-muted); font-size:0.85rem;">${item.brand}</p>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span style="font-weight:700;">${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <div style="font-weight:800; font-size:1.1rem;">₹${(item.price * item.quantity).toLocaleString('en-IN')}</div>
+                    </div>
+                `).join('');
+            }
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = Math.round(subtotal * 0.18);
+            const total = subtotal + tax;
+
+            document.getElementById('summary-subtotal').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            document.getElementById('summary-tax').textContent = `₹${tax.toLocaleString('en-IN')}`;
+            document.getElementById('summary-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+        }
+
+        function renderCheckoutSummary() {
+            const container = document.getElementById('checkout-summary-items');
+            if (!container) return;
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = Math.round(subtotal * 0.18);
+            const total = subtotal + tax;
+
+            container.innerHTML = cart.map(item => `
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                    <span>${item.name} (x${item.quantity})</span>
+                    <strong>₹${(item.price * item.quantity).toLocaleString('en-IN')}</strong>
+                </div>
+            `).join('');
+
+            document.getElementById('checkout-total-amount').textContent = `₹${total.toLocaleString('en-IN')}`;
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Order successfully reserved at Thungabhadra Mobiles! Visit our Jagadesh Market showroom in Hyderabad for pickup or delivery.');
+            cart = [];
+            saveCart();
+            navigateTo('home');
+        }
+
+        saveCart();
+        initGrids();
+    </script>
+</body>
+</html>
